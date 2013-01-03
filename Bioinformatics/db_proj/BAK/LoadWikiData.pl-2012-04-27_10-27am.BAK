@@ -1,0 +1,57 @@
+#!/usr/bin/perl -W
+
+use strict;
+use warnings;
+
+#use lib "/data/mp656/scripts/INC";
+#use MediaWiki::DumpFile;
+#use Parse::MediaWikiDump;
+
+#my $pmwd = Parse::MediaWikiDump->new ;
+#my $pages = $pmwd->pages($IN_FILE);
+#my $mw = MediaWiki::DumpFile->new ;
+#my $pages = $mw->pages($IN_FILE);
+
+use XML::Parser ;
+use XML::Twig;
+
+my $IN_FILE = shift;    die "No File Supplied!" if (!$IN_FILE || $IN_FILE =~ m/^[\w]*$/);
+
+sub parser_sub {
+    my $parser = XML::Parser ->new( ErrorContext =>2 );
+    eval $parser->parsefile($IN_FILE);
+    die "Error parsing XML file ($IN_FILE) \n\tERR >> $@\n" if( $@ ) ;
+    print "XML file ($IN_FILE) is well-formed \n";
+}
+# &parser_sub;
+
+sub twig_sub {
+    my $twig = XML::Twig->new(
+			      #twig_handlers => {
+			#	  page => sub{ $_->purge  },
+			#	  generator => sub{ $_->delete; },
+			#	  _default_ => sub{ $_->purge; },
+			#      }, 
+			      pretty_print => 'record',
+			      );
+    $twig->parsefile("$IN_FILE" )
+	|| die ;
+    $twig->flush;
+
+    $twig->print_to_file("test.twig.output.xml");
+}
+&twig_sub;
+
+
+
+
+
+
+
+
+
+
+
+
+
+print "\n";
