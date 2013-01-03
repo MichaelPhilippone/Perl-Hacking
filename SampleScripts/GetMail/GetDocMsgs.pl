@@ -1,0 +1,116 @@
+#
+#	Get emails from an IMAP mailbox
+#
+
+use strict;
+use warnings;    
+use Net::IMAP::Simple;
+use Carp;
+use Email::Simple;
+use Email::MIME;
+use Michael::Utils qw( printMe );
+
+##############################################################################
+# Print the subject's of all the messages in the INBOX
+sub ListAllMsgs {
+	my( $imap , $folder , @argv ) = @_;
+	
+	my $msgs = $imap->select( $folder );
+	
+	for(my $i = 1; $i <= $msgs; $i++) {           
+		my $es = Email::Simple->new(join '', @{ $imap->top($i) } );    
+		my $messages = $es->header('Subject')."\n";
+		my $date = $es->header('Date');
+		chomp $messages;
+		chomp $date;
+		print "$messages :: $date\n";
+	}
+}
+##############################################################################
+sub MsgCounts {
+
+	my ( $imap , $folder , @argv ) = @_;
+	
+	my( $unseen , $recent , $num ) = $imap->status( $folder );
+	print "There are: \n";
+	print "    $unseen   UNREAD messages \n";
+	print "    $recent   RECENT messages \n";
+	print "    $num      TOTAL messages \n";
+	
+	my $unseenMsgs = $imap->unseen( $folder );
+	print "    $num      UNSEEN msgs \n";
+}
+##############################################################################
+sub Mailboxes {
+	my ( $imap , @argv ) = @_;
+	
+	my @folders = $imap->mailboxes;
+	
+	print join("\n -> " , @folders);
+}
+##############################################################################
+sub DocMsgs {
+my ( $imap , @argv ) = @_;
+	
+	my $msgs = $imap->select('INBOX');
+	print "DOC Msg IDs - ".$msgs."\n";
+	
+	for my $i (reverse(1..$msgs)) {
+		
+		# get the message, returned as a reference to an array of lines
+        my $lines = $imap->get( $i );
+
+        # test if for DOC email address and construct message obj if applicable
+		if( join( '\n' , @$lines ) =~ /DOCHelpDesk\@dc.gov/) {
+			#print "MESSAGE $i \n\n";
+			#print join( '\n' , @$lines );
+			#print "\n----------------------------------------------------------------\n\n\n";
+			my $es = Email::Simple->new( join('',@{ $imap->top($i) }) );
+			my $from = $es->header('From');
+			my $subj = $es->header('Subject');
+			my $date = $es->header('Date');
+			my $hasAttach = $es->header('X-MS-Has-Attach');	
+			
+			printMe( "MSG-ID: $i \n" );
+			printMe( "FROM:   $from \n" );
+			printMe( "SUBJ:   $subj \n" );
+			printMe( "DATE:   $date \n" );
+			printMe( "ATCH:   $hasAttach \n\n\n" );
+			
+			#now, attachments:
+			my $parsed = Email::MIME->new( join('',@{ $imap->top($i) }) );
+			my %parts = $parsed->parts;
+			printMe( %parts );
+		}
+	}
+}
+##############################################################################
+sub CopyMsg {	
+	my ( $imap , $msgID , $folder , @argv ) = @_;
+	print "copied" if $imap->copy( $msgID , $folder );	
+}
+##############################################################################
+sub main {
+	my ( @argv ) = @_;
+	
+	my $host = '';
+	my $user = '';
+	my $pass = '';
+	# Create the IMAP object
+	my $imap = Net::IMAP::Simple->new( $host ) ;
+	# Log on
+	$imap->login( $user , $pass ) || croak( "Login failed: Unable to login. \n");
+	
+	#ListAllMsgs($imap , 'INBOX');
+	#MsgCounts($imap , 'INBOX');
+	#Mailboxes($imap);
+	
+	DocMsgs($imap);
+	#CopyMsg(...)
+	
+	$imap->quit;
+}
+
+##############################################################################
+main(@ARGV);
+

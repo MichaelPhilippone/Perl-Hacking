@@ -1,0 +1,67 @@
+8
+
+dir
+372
+https://sunshine.healthright-dc.com:60001/svn/Michael/Code/trunk/scripts/perl/_ONE_LINERS
+https://sunshine.healthright-dc.com:60001/svn/Michael
+
+
+
+2010-08-04T14:58:44.120343Z
+248
+mphilippone
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c96c3cc9-e866-254d-89f4-aedb401dfa1c
+
+TEST
+dir
+
+JustAnotherPerlHacker.pl
+file
+
+
+
+
+2010-11-24T15:58:12.000000Z
+4c5e5c885ebb2f2a8135853dd81b718e
+2010-08-04T14:58:44.120343Z
+248
+mphilippone
+
+InPlaceEdit.pl
+file
+
+
+
+
+2010-11-24T15:58:12.000000Z
+68cdb8e56ebd1dad7b394ecc9aa9a130
+2010-08-04T14:58:44.120343Z
+248
+mphilippone
+
+RenameAllFiles.pl
+file
+
+
+
+
+2010-11-24T15:58:12.000000Z
+8b3a03d779fd958423248a8a7f1e93c9
+2010-08-04T14:58:44.120343Z
+248
+mphilippone
+

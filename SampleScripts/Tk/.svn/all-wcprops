@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/Michael/!svn/ver/371/Code/trunk/scripts/perl/Tk
+END
+GUI_tutorial.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Michael/!svn/ver/133/Code/trunk/scripts/perl/Tk/GUI_tutorial.pl
+END
+StatusBar.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/Michael/!svn/ver/133/Code/trunk/scripts/perl/Tk/StatusBar.pl
+END
+ProgressBar.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/Michael/!svn/ver/133/Code/trunk/scripts/perl/Tk/ProgressBar.pl
+END
+TKFileDialog.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Michael/!svn/ver/371/Code/trunk/scripts/perl/Tk/TKFileDialog.pl
+END

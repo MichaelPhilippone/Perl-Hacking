@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/Michael/!svn/ver/82/Code/trunk/scripts/perl/GetMail
+END
+MAILs.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/Michael/!svn/ver/82/Code/trunk/scripts/perl/GetMail/MAILs.txt
+END
+print.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/Michael/!svn/ver/82/Code/trunk/scripts/perl/GetMail/print.pl
+END
+GetDocMsgs.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/Michael/!svn/ver/82/Code/trunk/scripts/perl/GetMail/GetDocMsgs.pl
+END
+GetMail.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/Michael/!svn/ver/82/Code/trunk/scripts/perl/GetMail/GetMail.pl
+END

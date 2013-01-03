@@ -1,0 +1,16 @@
+DOC Msg IDs - 2991
+MSG-ID: 2991 
+FROM:   DOCHelpDesk@dc.gov <DOCHelpDesk@dc.gov> 
+SUBJ:   DC DOC Daily Intake Report 2010-05-03-05-00-09 
+DATE:   Mon, 3 May 2010 05:00:11 -0400 
+ATCH:   yes 
+
+
+Email::MIME=HASH(0xed17b4)MSG-ID: 2990 
+FROM:   DOCHelpDesk@dc.gov <DOCHelpDesk@dc.gov> 
+SUBJ:   DC DOC Daily Discharge Report 2010-05-03-05-05-51 
+DATE:   Mon, 3 May 2010 05:05:58 -0400 
+ATCH:   yes 
+
+
+Email::MIME=HASH(0xedf03c)

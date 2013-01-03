@@ -1,0 +1,30 @@
+providerNumber,1,9
+EnrollmentCode,10,2
+CurrentID,12,8
+PreviousID,20,8
+LastName,28,17
+FirstName,45,12
+MiddleInitial,57,1
+Gender,58,1
+Age,59,3
+DOB,62,8
+CaseNumber,70,8
+Phone,78,10
+Street,88,30
+HouseNumber,118,5
+ApartmentNumber,123,4
+Quadrant,127,2
+City,129,20
+State,149,2
+Zip,151,5
+ZipExtension,156,4
+RecertificationDate,160,6
+BeginDate,166,8
+EndDate,174,8
+DisenrollReason,182,2
+SSN,184,9
+ProgramCode,193,4
+# OLD/REMOVED: Race,197,1
+# OLD/REMOVED: HeadOfHousehold,198,1
+# OLD/REMOVED: Language,200,3
+# OLD/REMOVED: Ward,203,2
